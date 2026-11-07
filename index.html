@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITM Askeri Kamp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        /* Üst Menü Tasarımı */
+        header {
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e74c3c;
+        }
+        header h1 {
+            font-size: 20px;
+            color: #ecf0f1;
+        }
+        .menu-icon {
+            font-size: 28px;
+            cursor: pointer;
+            user-select: none;
+        }
+        /* Açılır Menü (Üç Çizgi) */
+        nav {
+            display: none;
+            background-color: #34495e;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            overflow: hidden;
+            z-index: 1000;
+        }
+        nav a {
+            display: block;
+            padding: 12px 15px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid #2c3e50;
+            font-size: 14px;
+        }
+        nav a:hover {
+            background-color: #e74c3c;
+        }
+        /* Ana İçerik ve Giriş Formu */
+        .container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #2c3e50;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1a1a1a;
+            color: white;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+<!-- Üst Menü Çubuğu -->
+    <header>
+        <h1>ITM Askeri Kamp</h1>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </header>
+
+    <!-- Sağ Üst Menü İçeriği -->
+    <nav id="dropdownMenu">
+        <a href="#">Ana Sayfa</a>
+        <a href="#destek">Destek Ekibi (Yetkililer)</a>
+        <a href="https://discord.gg/itmarmy" target="_blank">Discord Sunucusu</a>
+    </nav>
+
+    <!-- Kayıt / Giriş Alanı -->
+    <div class="container">
+        <h2>ITM Kayıt Paneli</h2>
+        <form onsubmit="girisYap(event)">
+            <div class="form-group">
+                <label for="robloxAdi">Roblox İsmi:</label>
+                <input type="text" id="robloxAdi" required placeholder="Roblox adınızı girin">
+            </div>
+            <div class="form-group">
+                <label for="sifre">Şifre Belirle:</label>
+                <input type="password" id="sifre" required placeholder="Bir şifre oluşturun">
+            </div>
+            <button type="submit">Giriş Yap / Kayıt Ol</button>
+        </form>
+    </div>
+
+    <script>
+        // Üç çizgi menüsünü açıp kapatan fonksiyon
+        function toggleMenu() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        // Giriş butonuna basıldığında çalışacak geçici kod
+        function girisYap(event) {
+            event.preventDefault();
+            var isim = document.getElementById("robloxAdi").value;
+            alert("Hoş geldin Asker " + isim + "! Kayıt simülasyonu başarılı.");
+        }
+    </script>
+
+</body>
+</html>
